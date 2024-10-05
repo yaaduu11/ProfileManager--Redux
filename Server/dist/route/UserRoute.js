@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const UserController_1 = require("../controller/UserController");
+const multer_1 = require("../multer");
+const router = (0, express_1.Router)();
+router.post('/insertUser', UserController_1.insertUser);
+router.post('/signIn', UserController_1.signIn);
+router.get('/getUserData', UserController_1.getUserData);
+router.post('/uploadImage', multer_1.upload.single('image'), UserController_1.imageUpload);
+router.post('/signOut', UserController_1.signOut);
+router.patch('/updateUserData', UserController_1.editUser);
+exports.default = router;
